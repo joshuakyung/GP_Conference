@@ -1,0 +1,1395 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RE:MEMBER 2026 — GP KOREA 전체 대회</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;600;700&family=Noto+Sans+KR:wght@300;400;500;700&family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #F2EDE4;
+      --bg-dark: #1C1C1A;
+      --text: #1C1C1A;
+      --text-muted: #7A7570;
+      --accent: #B8412A;
+      --accent-light: #D4603A;
+      --border: #D6CFBF;
+      --card-w: 480px;
+      --card-h: 740px;
+    }
+
+    html, body {
+      background: #E8E2D8;
+      font-family: 'Noto Sans KR', sans-serif;
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    /* ── Layout ── */
+    .site-header {
+      text-align: center;
+      padding: 48px 24px 32px;
+    }
+    .site-header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 15px;
+      letter-spacing: .18em;
+      font-weight: 700;
+      color: var(--accent);
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .site-header p {
+      font-size: 12px;
+      letter-spacing: .12em;
+      color: var(--text-muted);
+      text-transform: uppercase;
+    }
+
+    /* ── Nav tabs ── */
+    .card-nav {
+      display: flex;
+      justify-content: center;
+      gap: 6px;
+      flex-wrap: wrap;
+      padding: 0 24px 40px;
+    }
+    .card-nav button {
+      width: 36px;
+      height: 36px;
+      border: 1px solid var(--border);
+      background: var(--bg);
+      border-radius: 50%;
+      font-size: 11px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 500;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all .2s;
+    }
+    .card-nav button:hover,
+    .card-nav button.active {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+    }
+
+    /* ── Card container ── */
+    .cards-wrapper {
+      display: flex;
+      justify-content: center;
+      padding: 0 24px 80px;
+    }
+    .card {
+      display: none;
+      width: var(--card-w);
+      min-height: var(--card-h);
+      background: var(--bg);
+      position: relative;
+      overflow: hidden;
+    }
+    .card.visible { display: flex; flex-direction: column; }
+
+    /* ── Card inner ── */
+    .card-inner {
+      flex: 1;
+      padding: 36px 36px 28px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ── Common label ── */
+    .label {
+      font-family: 'Inter', sans-serif;
+      font-size: 9px;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+    .label-gray {
+      font-family: 'Inter', sans-serif;
+      font-size: 9px;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    /* ── Card footer ── */
+    .card-footer {
+      border-top: 1px solid var(--border);
+      padding: 14px 36px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .card-footer .footer-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 9px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+    .card-footer .footer-num {
+      font-family: 'Inter', sans-serif;
+      font-size: 9px;
+      letter-spacing: .1em;
+      color: var(--text-muted);
+    }
+
+    /* ── Nav arrows ── */
+    .card-arrows {
+      display: flex;
+      gap: 12px;
+    }
+    .card-arrows button {
+      background: none;
+      border: none;
+      font-size: 13px;
+      color: var(--text-muted);
+      cursor: pointer;
+      padding: 0 4px;
+      transition: color .2s;
+    }
+    .card-arrows button:hover { color: var(--accent); }
+
+    /* ════════════════════════════════
+       CARD 01 — COVER
+    ════════════════════════════════ */
+    .card-01 .card-inner { justify-content: space-between; }
+    .c01-top { display: flex; justify-content: space-between; align-items: flex-start; }
+    .c01-org {
+      font-family: 'Inter', sans-serif;
+      font-size: 9px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+    .c01-loc {
+      font-family: 'Inter', sans-serif;
+      font-size: 9px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+    .c01-brief {
+      margin-top: 18px;
+    }
+    .c01-brief .label { margin-bottom: 4px; }
+    .c01-subtitle {
+      font-family: 'Noto Sans KR', sans-serif;
+      font-size: 13px;
+      color: var(--text-muted);
+      letter-spacing: .04em;
+    }
+    .c01-title {
+      margin: 20px 0 8px;
+    }
+    .c01-title .re {
+      font-family: 'Playfair Display', serif;
+      font-size: 86px;
+      font-weight: 900;
+      line-height: .9;
+      letter-spacing: -.02em;
+      color: var(--text);
+      display: block;
+    }
+    .c01-title .member {
+      font-family: 'Playfair Display', serif;
+      font-size: 86px;
+      font-weight: 900;
+      line-height: .9;
+      letter-spacing: -.02em;
+      color: var(--text);
+      display: block;
+    }
+    .c01-desc {
+      font-size: 13px;
+      line-height: 1.7;
+      color: var(--text-muted);
+      margin-top: 16px;
+      max-width: 320px;
+    }
+    .c01-meta {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px 28px;
+      margin-top: 28px;
+    }
+    .c01-meta-item .meta-key {
+      font-family: 'Inter', sans-serif;
+      font-size: 8.5px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 5px;
+    }
+    .c01-meta-item .meta-val {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.4;
+    }
+    .c01-meta-item .meta-sub {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+    .c01-values {
+      margin-top: 24px;
+      padding-top: 18px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      gap: 14px;
+      align-items: center;
+    }
+    .c01-values .v-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 8px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+    .c01-values .v-words {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      color: var(--text);
+    }
+    .c01-values .v-sep { color: var(--border); font-size: 11px; }
+    .c01-venue-photos {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-top: 16px;
+    }
+    .c01-venue-photo {
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 4 / 3;
+    }
+    .c01-venue-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .c01-venue-photo .photo-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(transparent, rgba(0,0,0,.55));
+      padding: 18px 10px 8px;
+      font-family: 'Inter', sans-serif;
+      font-size: 9px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.9);
+    }
+
+    /* ════════════════════════════════
+       CARD 02 — CONTEXT
+    ════════════════════════════════ */
+    .c02-heading {
+      font-family: 'Noto Serif KR', serif;
+      font-size: 34px;
+      font-weight: 700;
+      line-height: 1.25;
+      letter-spacing: -.02em;
+      color: var(--text);
+      margin: 6px 0 12px;
+    }
+    .c02-intro {
+      font-size: 13px;
+      line-height: 1.75;
+      color: var(--text-muted);
+      margin-bottom: 28px;
+    }
+    .c02-items { display: flex; flex-direction: column; gap: 0; }
+    .c02-item {
+      display: flex;
+      gap: 18px;
+      padding: 18px 0;
+      border-top: 1px solid var(--border);
+    }
+    .c02-num {
+      font-family: 'Inter', sans-serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--accent);
+      min-width: 30px;
+      line-height: 1;
+      padding-top: 2px;
+    }
+    .c02-body h3 {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+    .c02-body p {
+      font-size: 13px;
+      line-height: 1.7;
+      color: var(--text-muted);
+    }
+    .c02-keywords {
+      margin-top: auto;
+      padding-top: 20px;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      color: var(--text-muted);
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+    .c02-keywords span { color: var(--border); font-size: 10px; }
+
+    /* ════════════════════════════════
+       CARD 03 — STRATEGIC MEANING
+    ════════════════════════════════ */
+    .c03-heading {
+      font-family: 'Noto Serif KR', serif;
+      font-size: 30px;
+      font-weight: 700;
+      line-height: 1.3;
+      letter-spacing: -.02em;
+      color: var(--text);
+      margin: 6px 0 20px;
+    }
+    .c03-body p {
+      font-size: 13px;
+      line-height: 1.75;
+      color: var(--text-muted);
+      margin-bottom: 14px;
+    }
+    .c03-divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 24px 0;
+    }
+    .c03-quote {
+      background: var(--bg-dark);
+      padding: 28px 28px;
+      margin: 0 -36px;
+      margin-top: auto;
+    }
+    .c03-quote p {
+      font-family: 'Noto Serif KR', serif;
+      font-size: 17px;
+      font-weight: 600;
+      line-height: 1.6;
+      color: #fff;
+      letter-spacing: -.01em;
+    }
+    .c03-quote .q-mark {
+      font-family: 'Playfair Display', serif;
+      font-size: 40px;
+      color: var(--accent);
+      line-height: .6;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    /* ════════════════════════════════
+       CARD 04 — THE ARC
+    ════════════════════════════════ */
+    .c04-heading {
+      font-family: 'Noto Serif KR', serif;
+      font-size: 28px;
+      font-weight: 700;
+      line-height: 1.3;
+      letter-spacing: -.02em;
+      color: var(--text);
+      margin: 6px 0 24px;
+    }
+    .c04-arc {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    .c04-phase {
+      background: #EDE8DF;
+      padding: 16px 14px;
+      position: relative;
+    }
+    .c04-phase.pivot {
+      background: var(--bg-dark);
+    }
+    .c04-phase-tag {
+      font-family: 'Inter', sans-serif;
+      font-size: 8px;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+    .c04-phase.pivot .c04-phase-tag { color: rgba(255,255,255,.5); }
+    .c04-phase-period {
+      font-family: 'Inter', sans-serif;
+      font-size: 9px;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+    .c04-phase.pivot .c04-phase-period { color: rgba(255,255,255,.6); }
+    .c04-phase h4 {
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 1.4;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+    .c04-phase.pivot h4 { color: #fff; }
+    .c04-phase p {
+      font-size: 12px;
+      line-height: 1.6;
+      color: var(--text-muted);
+    }
+    .c04-phase.pivot p { color: rgba(255,255,255,.7); }
+    .c04-phase.pivot .c04-phase-accent {
+      font-size: 9px;
+      color: var(--accent-light);
+      margin-top: 6px;
+      font-style: italic;
+    }
+    .c04-conclusion {
+      border-left: 3px solid var(--accent);
+      padding-left: 16px;
+      margin-top: auto;
+    }
+    .c04-conclusion p {
+      font-size: 13px;
+      line-height: 1.7;
+      color: var(--text-muted);
+    }
+    .c04-conclusion strong { color: var(--text); }
+
+    /* ════════════════════════════════
+       CARD 05 — THEME
+    ════════════════════════════════ */
+    .c05-title-big {
+      font-family: 'Playfair Display', serif;
+      font-size: 72px;
+      font-weight: 900;
+      line-height: .9;
+      letter-spacing: -.02em;
+      color: var(--text);
+      margin: 6px 0 4px;
+    }
+    .c05-colon { color: var(--accent); }
+    .c05-tagline {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 28px;
+    }
+    .c05-meaning {
+      border-top: 1px solid var(--border);
+      padding-top: 20px;
+      margin-bottom: 20px;
+    }
+    .c05-word {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text);
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      margin-bottom: 4px;
+    }
+    .c05-word .pos {
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      color: var(--text-muted);
+      font-style: normal;
+      font-weight: 400;
+    }
+    .c05-word .def {
+      margin-left: auto;
+      font-family: 'Noto Serif KR', serif;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text);
+    }
+    .c05-meaning p {
+      font-size: 13px;
+      line-height: 1.7;
+      color: var(--text-muted);
+      margin-top: 8px;
+      margin-bottom: 20px;
+    }
+    .c05-values-block {
+      background: var(--bg-dark);
+      padding: 20px 22px;
+      margin: 0 -36px;
+      margin-top: auto;
+    }
+    .c05-values-block .v-subtitle {
+      font-family: 'Inter', sans-serif;
+      font-size: 8px;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.4);
+      margin-bottom: 10px;
+    }
+    .c05-values-block .v-list {
+      font-size: 22px;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: .12em;
+    }
+    .c05-values-block .v-list span { color: rgba(255,255,255,.3); margin: 0 6px; }
+    .c05-values-block .v-note {
+      font-size: 10px;
+      color: rgba(255,255,255,.4);
+      margin-top: 8px;
+    }
+
+    /* ════════════════════════════════
+       CARD 06 — MISSION
+    ════════════════════════════════ */
+    .c06-heading {
+      font-family: 'Noto Serif KR', serif;
+      font-size: 30px;
+      font-weight: 700;
+      line-height: 1.25;
+      letter-spacing: -.02em;
+      color: var(--text);
+      margin: 6px 0 22px;
+    }
+    .c06-tasks { display: flex; flex-direction: column; gap: 0; }
+    .c06-task {
+      display: flex;
+      gap: 0;
+      border-top: 1px solid var(--border);
+    }
+    .c06-task-tag {
+      writing-mode: vertical-rl;
+      text-orientation: mixed;
+      font-family: 'Inter', sans-serif;
+      font-size: 8px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      padding: 16px 12px 16px 0;
+      min-width: 28px;
+    }
+    .c06-task-body {
+      padding: 16px 0;
+    }
+    .c06-task-body h3 {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 8px;
+      line-height: 1.4;
+    }
+    .c06-task-body p {
+      font-size: 13px;
+      line-height: 1.7;
+      color: var(--text-muted);
+    }
+    .c06-task-body .cite {
+      font-size: 10px;
+      color: var(--text-muted);
+      margin-top: 6px;
+      font-style: italic;
+    }
+
+    /* ════════════════════════════════
+       CARD 07 — PROGRAM
+    ════════════════════════════════ */
+    .c07-heading {
+      font-family: 'Noto Serif KR', serif;
+      font-size: 30px;
+      font-weight: 700;
+      line-height: 1.25;
+      letter-spacing: -.02em;
+      color: var(--text);
+      margin: 6px 0 22px;
+    }
+    .c07-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    .c07-disc {
+      background: #EDE8DF;
+      padding: 16px;
+    }
+    .c07-disc-tag {
+      font-family: 'Inter', sans-serif;
+      font-size: 8px;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+    .c07-disc h3 {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 4px;
+      line-height: 1.35;
+    }
+    .c07-disc .speaker {
+      font-size: 12px;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+    .c07-disc p {
+      font-size: 12.5px;
+      line-height: 1.65;
+      color: var(--text-muted);
+    }
+    .c07-full {
+      background: #EDE8DF;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+    .c07-full .c07-disc-tag { margin-bottom: 6px; }
+    .c07-full h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 10px;
+    }
+    .c07-full p {
+      font-size: 13px;
+      line-height: 1.7;
+      color: var(--text-muted);
+    }
+    .c07-narrative {
+      margin-top: auto;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      color: var(--text-muted);
+      flex-wrap: wrap;
+    }
+    .c07-narrative .arr { color: var(--accent); font-size: 12px; }
+
+    /* ════════════════════════════════
+       CARD 08 — STRUCTURE
+    ════════════════════════════════ */
+    .c08-heading {
+      font-family: 'Noto Serif KR', serif;
+      font-size: 30px;
+      font-weight: 700;
+      line-height: 1.25;
+      letter-spacing: -.02em;
+      color: var(--text);
+      margin: 6px 0 6px;
+    }
+    .c08-sub {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 18px;
+      letter-spacing: .04em;
+    }
+    .c08-leadership {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+    .c08-person .role {
+      font-family: 'Inter', sans-serif;
+      font-size: 8.5px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 3px;
+    }
+    .c08-person .name {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .c08-person .title {
+      font-size: 10px;
+      color: var(--text-muted);
+    }
+    .c08-divs {
+      border-top: 1px solid var(--border);
+      padding-top: 16px;
+      margin-bottom: 14px;
+    }
+    .c08-divs-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 8px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+    }
+    .c08-phase-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .c08-phase-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 8px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      padding: 3px 7px;
+      min-width: 52px;
+      text-align: center;
+      flex-shrink: 0;
+    }
+    .c08-phase-label.plan { background: var(--accent); color: #fff; }
+    .c08-phase-label.exec { background: var(--bg-dark); color: #fff; }
+    .c08-phase-label.supp { background: #C5BFB2; color: var(--text); }
+    .c08-phase-items {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+    }
+    .c08-tag {
+      font-size: 12px;
+      background: #EDE8DF;
+      padding: 3px 9px;
+      color: var(--text);
+    }
+    .c08-principle {
+      border-top: 1px solid var(--border);
+      padding-top: 14px;
+      font-size: 13px;
+      line-height: 1.7;
+      color: var(--text-muted);
+    }
+
+    /* ════════════════════════════════
+       CARD 09 — PROGRESS
+    ════════════════════════════════ */
+    .c09-heading {
+      font-family: 'Noto Serif KR', serif;
+      font-size: 42px;
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -.02em;
+      color: var(--text);
+      margin: 6px 0 4px;
+    }
+    .c09-dday {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+    .c09-cols {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .c09-col-header {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: baseline;
+      gap: 5px;
+    }
+    .c09-col-header .count {
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .c09-list { list-style: none; display: flex; flex-direction: column; gap: 0; }
+    .c09-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      font-size: 12px;
+      line-height: 1.6;
+      color: var(--text-muted);
+      padding: 5px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .c09-list li:last-child { border-bottom: none; }
+    .c09-list .icon-done {
+      color: var(--text-muted);
+      font-size: 11px;
+      margin-top: 1px;
+      flex-shrink: 0;
+    }
+    .c09-list .icon-wip {
+      color: var(--accent);
+      font-size: 10px;
+      margin-top: 2px;
+      flex-shrink: 0;
+    }
+    .c09-list .sub {
+      font-size: 11px;
+      color: #A09890;
+      display: block;
+    }
+
+    /* ════════════════════════════════
+       CARD 10 — THE ASK
+    ════════════════════════════════ */
+    .c10-heading {
+      font-family: 'Noto Serif KR', serif;
+      font-size: 36px;
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -.02em;
+      color: var(--text);
+      margin: 6px 0 6px;
+    }
+    .c10-intro {
+      font-size: 13px;
+      line-height: 1.7;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+    }
+    .c10-asks { display: flex; flex-direction: column; gap: 0; }
+    .c10-ask {
+      display: flex;
+      gap: 18px;
+      padding: 16px 0;
+      border-top: 1px solid var(--border);
+    }
+    .c10-ask-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--accent);
+      min-width: 24px;
+    }
+    .c10-ask-body h3 {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+    .c10-ask-body p {
+      font-size: 13px;
+      line-height: 1.7;
+      color: var(--text-muted);
+    }
+    .c10-quote {
+      background: #EDE8DF;
+      padding: 20px 20px;
+      margin-top: auto;
+      border-left: 3px solid var(--accent);
+    }
+    .c10-quote p {
+      font-family: 'Noto Serif KR', serif;
+      font-size: 13px;
+      line-height: 1.75;
+      color: var(--text);
+      font-style: italic;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 540px) {
+      :root { --card-w: 100vw; }
+      .card { width: 100vw; }
+      .c01-title .re,
+      .c01-title .member { font-size: 62px; }
+      .c05-title-big { font-size: 54px; }
+      .c04-arc { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="site-header">
+  <h1>RE:MEMBER 2026</h1>
+  <p>GP KOREA Global Partners · Brand Briefing · April 2026</p>
+</header>
+
+<nav class="card-nav" id="cardNav">
+  <button class="active" onclick="showCard(1)">01</button>
+  <button onclick="showCard(2)">02</button>
+  <button onclick="showCard(3)">03</button>
+  <button onclick="showCard(4)">04</button>
+  <button onclick="showCard(5)">05</button>
+  <button onclick="showCard(6)">06</button>
+  <button onclick="showCard(7)">07</button>
+  <button onclick="showCard(8)">08</button>
+  <button onclick="showCard(9)">09</button>
+  <button onclick="showCard(10)">10</button>
+</nav>
+
+<div class="cards-wrapper">
+
+  <!-- ══════════════ CARD 01 ══════════════ -->
+  <article class="card card-01 visible" id="card-1">
+    <div class="card-inner">
+      <div class="c01-top">
+        <span class="c01-org">GP KOREA · GLOBAL PARTNERS</span>
+        <span class="c01-loc">BUSAN · 2026</span>
+      </div>
+      <div class="c01-brief">
+        <div class="label">Brand Briefing · April 2026</div>
+        <div class="c01-subtitle">2026 지피(GP KOREA) 전체 대회</div>
+      </div>
+      <div class="c01-title">
+        <span class="re">RE:</span>
+        <span class="member">MEMBER</span>
+      </div>
+      <p class="c01-desc">4년 만의 전체 대회, 흩어진 공동체가 다시 한 몸이 되는 뜨거운 집단적 경험.</p>
+      <div class="c01-meta">
+        <div class="c01-meta-item">
+          <div class="meta-key">Date</div>
+          <div class="meta-val">2026.10.27 — 30</div>
+          <div class="meta-sub">목 — 일, 4일간</div>
+        </div>
+        <div class="c01-meta-item">
+          <div class="meta-key">Venue</div>
+          <div class="meta-val">부산 브니엘교회</div>
+          <div class="meta-sub">숙소: 하얏트 플레이스 부산</div>
+        </div>
+        <div class="c01-meta-item">
+          <div class="meta-key">Capacity</div>
+          <div class="meta-val">330 — 370명</div>
+          <div class="meta-sub">전교사·이사·MK 포함</div>
+        </div>
+        <div class="c01-meta-item">
+          <div class="meta-key">Budget</div>
+          <div class="meta-val">₩120,000,000<br><small style="font-size:10px;font-weight:400">(미정)</small></div>
+        </div>
+      </div>
+      <div class="c01-venue-photos">
+        <div class="c01-venue-photo">
+          <img src="images/church.jpg" alt="부산 브니엘교회" />
+          <span class="photo-caption">브니엘교회 · Venue</span>
+        </div>
+        <div class="c01-venue-photo">
+          <img src="images/hotel.jpg" alt="하얏트 플레이스 부산" />
+          <span class="photo-caption">하얏트 플레이스 · Stay</span>
+        </div>
+      </div>
+      <div class="c01-values">
+        <span class="v-label">Theme · Four Values</span>
+        <span class="v-words">거룩<span class="v-sep">·</span>기쁨<span class="v-sep">·</span>섬김<span class="v-sep">·</span>절제</span>
+      </div>
+    </div>
+    <div class="card-footer">
+      <span class="footer-label">Cover</span>
+      <div class="card-arrows">
+        <button onclick="showCard(10)">←</button>
+        <button onclick="showCard(2)">→</button>
+      </div>
+      <span class="footer-num">01 / 10</span>
+    </div>
+  </article>
+
+  <!-- ══════════════ CARD 02 ══════════════ -->
+  <article class="card card-02" id="card-2">
+    <div class="card-inner">
+      <div class="label">The Moment</div>
+      <h2 class="c02-heading">세 가지 현실이<br>겹치는 시점.</h2>
+      <p class="c02-intro">2026년은 우연의 시간이 아닙니다. 이 대회는 조직의 세 흐름이 정확히 한 지점에서 만나는 자리에 놓여 있습니다.</p>
+      <div class="c02-items">
+        <div class="c02-item">
+          <div class="c02-num">01</div>
+          <div class="c02-body">
+            <h3>리더십 전환기</h3>
+            <p>2026년 말, 이사장과 대표 포함 다수 지역리더(RL)가 교체됩니다. 지난 리더십을 통한 안정화 시기가 마무리되고, 새로운 전환의 시기가 시작됩니다.</p>
+          </div>
+        </div>
+        <div class="c02-item">
+          <div class="c02-num">02</div>
+          <div class="c02-body">
+            <h3>양적 성장, 질적 과제</h3>
+            <p>회원이 300명 이상으로 성장했으나, 서로를 모르는 현실이 심화되었습니다. 숫자는 늘었지만 공동체성은 희석되었습니다.</p>
+          </div>
+        </div>
+        <div class="c02-item">
+          <div class="c02-num">03</div>
+          <div class="c02-body">
+            <h3>4년의 공백</h3>
+            <p>방콕 이후 전체가 모이는 대규모 오프라인 대회가 없었습니다. 흩어진 구성원이 하나가 되는 공동체임을 재확인해야 할 시점입니다.</p>
+          </div>
+        </div>
+      </div>
+      <div class="c02-keywords">
+        전환<span>·</span>도전<span>·</span>재회
+      </div>
+    </div>
+    <div class="card-footer">
+      <span class="footer-label">Context</span>
+      <div class="card-arrows">
+        <button onclick="showCard(1)">←</button>
+        <button onclick="showCard(3)">→</button>
+      </div>
+      <span class="footer-num">02 / 10</span>
+    </div>
+  </article>
+
+  <!-- ══════════════ CARD 03 ══════════════ -->
+  <article class="card card-03" id="card-3">
+    <div class="card-inner">
+      <div class="label">Strategic Meaning</div>
+      <h2 class="c03-heading">좋은 행사가 아니라,<br>전환의 분기점.</h2>
+      <div class="c03-body">
+        <p>지피는 비영리 선교 단체입니다. 떨어나나 승인이 아닌, 구성원의 헌신도와 자발적 헌신이 조직의 생존과 직결됩니다.</p>
+        <p>전체가 모이는 대회는 단순히 사명감을 재확인하고, 공동체 의식을 재건하는 유일한 집단적 경험의 장입니다.</p>
+        <p>이 기회를 놓치면 리더십 교체는 단순한 인적 교체에 머물고, 조직의 변화 동력을 만들기가 어렵습니다.</p>
+      </div>
+      <div class="c03-quote">
+        <span class="q-mark">"</span>
+        <p>대회는 저절로 좋아지지 않습니다.<br>의도적으로, 전략적으로 활용해야 합니다.</p>
+      </div>
+    </div>
+    <div class="card-footer">
+      <span class="footer-label">Strategic Meaning</span>
+      <div class="card-arrows">
+        <button onclick="showCard(2)">←</button>
+        <button onclick="showCard(4)">→</button>
+      </div>
+      <span class="footer-num">03 / 10</span>
+    </div>
+  </article>
+
+  <!-- ══════════════ CARD 04 ══════════════ -->
+  <article class="card card-04" id="card-4">
+    <div class="card-inner">
+      <div class="label">Continuous Strategy</div>
+      <h2 class="c04-heading">대회는 하나의 이벤트가 아니라,<br>전략적 과정의 정점.</h2>
+      <div class="c04-arc">
+        <div class="c04-phase">
+          <div class="c04-phase-tag">PRE →</div>
+          <div class="c04-phase-period">2025.12 — 2026.10</div>
+          <h4>준비 자체가<br>변화의 시작</h4>
+          <p>조직 체계화, 분과 편성, 분과장 교육, 등록 과정, 사전 공문</p>
+        </div>
+        <div class="c04-phase pivot">
+          <div class="c04-phase-tag">PIVOT</div>
+          <div class="c04-phase-period">2026.10.27 — 30</div>
+          <h4>집단적 경험의<br>정점</h4>
+          <p>변화의 에너지와 방향을 집약적으로 확인하는 분기점</p>
+          <div class="c04-phase-accent">Pivotal Moment</div>
+        </div>
+        <div class="c04-phase">
+          <div class="c04-phase-tag">→ POST</div>
+          <div class="c04-phase-period">2026.11 —</div>
+          <h4>문화 시스템으로<br>정착</h4>
+          <p>대회에서 확인한 비전과 과제를 조직 문화·시스템으로 구현하고, 후속 ALM과 리더십 인수인계가 이어집니다.</p>
+        </div>
+      </div>
+      <div class="c04-conclusion">
+        <p>이 세 단계가 단절 없이 하나로 연결될 때, 대회는 <strong>'좋았던 행사'</strong>가 아니라 <strong>'그 전과 그 후가 달라지는 사건</strong>이 됩니다.</p>
+      </div>
+    </div>
+    <div class="card-footer">
+      <span class="footer-label">The Arc</span>
+      <div class="card-arrows">
+        <button onclick="showCard(3)">←</button>
+        <button onclick="showCard(5)">→</button>
+      </div>
+      <span class="footer-num">04 / 10</span>
+    </div>
+  </article>
+
+  <!-- ══════════════ CARD 05 ══════════════ -->
+  <article class="card card-05" id="card-5">
+    <div class="card-inner">
+      <div class="label">The Theme</div>
+      <div class="c05-title-big"><span class="c05-colon">RE:</span>MEMBER</div>
+      <p class="c05-tagline">이 주제는 두 가지 의미를 동시에 담고 있습니다.</p>
+      <div class="c05-meaning">
+        <div class="c05-word">
+          re·member <span class="pos">/v./</span>
+          <span class="def">기억하다</span>
+        </div>
+        <p>지피의 창립 정신, 핵심 가치, 함께 걸어온 여정을 다시 기억합니다.<br>현 리더십이 8년간 감당해 온 수고를 기억하고 감사합니다.</p>
+      </div>
+      <div class="c05-meaning">
+        <div class="c05-word">
+          re-member <span class="pos">/v./</span>
+          <span class="def">다시 한 몸이 되다</span>
+        </div>
+        <p>흩어지고 희석된 공동체가 다시 진정한 멤버로 결합됩니다.<br>이름뿐인 소속이 아닌, 서로를 알고 함께 걷는 관계로 돌아옵니다.</p>
+      </div>
+      <div class="c05-values-block">
+        <div class="v-subtitle">Four Values — 네 가지 핵심 가치</div>
+        <div class="v-list">거룩<span>·</span>기쁨<span>·</span>섬김<span>·</span>절제</div>
+        <div class="v-note">지피 공동체가 회복하고 지켜가야 할 가치.</div>
+      </div>
+    </div>
+    <div class="card-footer">
+      <span class="footer-label">Theme</span>
+      <div class="card-arrows">
+        <button onclick="showCard(4)">←</button>
+        <button onclick="showCard(6)">→</button>
+      </div>
+      <span class="footer-num">05 / 10</span>
+    </div>
+  </article>
+
+  <!-- ══════════════ CARD 06 ══════════════ -->
+  <article class="card card-06" id="card-6">
+    <div class="card-inner">
+      <div class="label">What This Must Achieve</div>
+      <h2 class="c06-heading">이 대회가 반드시<br>해내야 할 세 가지.</h2>
+      <div class="c06-tasks">
+        <div class="c06-task">
+          <div class="c06-task-tag">Task 01</div>
+          <div class="c06-task-body">
+            <h3>보존할 가치를 다시 꺼내어 확인시키기</h3>
+            <p>변화는 모든 것을 버리는 것이 아닙니다. 무엇을 가져가고 무엇을 내려놓을지 선택하는 것입니다. 지피의 문화(뿌리)는 보존하되, 낡은 관행(가지)은 선별적으로 내려놓아야 합니다.</p>
+            <div class="cite">— Heifetz, Adaptive Leadership</div>
+          </div>
+        </div>
+        <div class="c06-task">
+          <div class="c06-task-tag">Task 02</div>
+          <div class="c06-task-body">
+            <h3>적응적 도전(Adaptive Challenge)에 대응하도록 동원하기</h3>
+            <p>세대 간 소통, 조직 체계화, 일하는 방식의 현대화 — 이것은 전문가가 대신 해결해 줄 수 없는, 구성원 스스로가 학습하고 적응해야 하는 과제입니다. 대회는 이 도전의 필요성을 인식하고 용기를 불어넣는 시간이어야 합니다.</p>
+          </div>
+        </div>
+        <div class="c06-task">
+          <div class="c06-task-tag">Task 03</div>
+          <div class="c06-task-body">
+            <h3>리더십 전환을 축복의 기회로 전환하기</h3>
+            <p>현 대표에 대한 공개적 감사와 축복, 차기 대표에 대한 신뢰와 위임, 그리고 전체 공동체의 재정비. 리더십 전환은 한 사람의 교체가 아니라 공동체 전체의 재정비입니다.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-footer">
+      <span class="footer-label">Mission</span>
+      <div class="card-arrows">
+        <button onclick="showCard(5)">←</button>
+        <button onclick="showCard(7)">→</button>
+      </div>
+      <span class="footer-num">06 / 10</span>
+    </div>
+  </article>
+
+  <!-- ══════════════ CARD 07 ══════════════ -->
+  <article class="card card-07" id="card-7">
+    <div class="card-inner">
+      <div class="label">Core Discourse</div>
+      <h2 class="c07-heading">대회의 핵심 담론과<br>주제 강의.</h2>
+      <div class="c07-grid">
+        <div class="c07-disc">
+          <div class="c07-disc-tag">Discourse 01</div>
+          <h3>소통과 상호 이해</h3>
+          <div class="speaker">김종구 소장 · 한국성격검사연구소<br>수요일 오전</div>
+          <p>성격 유형과 커뮤니케이션 스타일을 통해 서로를 이해하는 도구를 제공합니다. 300명이 넘는 회원이 실제로 서로를 알아갈 수 있는 구조적 접근.</p>
+        </div>
+        <div class="c07-disc">
+          <div class="c07-disc-tag">Discourse 02</div>
+          <h3>세대 이해와 조직문화</h3>
+          <div class="speaker">홍주은 대표 · 진저티프로젝트<br>수요일 오전</div>
+          <p>세대별 문화 차이를 진단하고, 건강한 조직문화를 세우기 위한 실질적 방향을 제시합니다. 대회 후 지피 맞춤형 컨설팅 연계도 검토 중.</p>
+        </div>
+      </div>
+      <div class="c07-full">
+        <div class="c07-disc-tag">Discourse 03 · 04</div>
+        <h3>말씀과 예배 · 친교와 네트워킹</h3>
+        <p>개회·저녁·폐회 예배가 하나의 서사(narrative)로 연결되며, 소그룹 교제·부산 투어·세대별·지역별 나눔이 이름과 얼굴을 넘어 이야기와 꿈을 나누는 관계로 이어집니다.</p>
+      </div>
+      <div class="c07-narrative">
+        우리는 누구인가
+        <span class="arr">→</span>
+        우리는 무엇을 직면하고 있는가
+        <span class="arr">→</span>
+        우리는 어디로 가는가
+      </div>
+    </div>
+    <div class="card-footer">
+      <span class="footer-label">Program</span>
+      <div class="card-arrows">
+        <button onclick="showCard(6)">←</button>
+        <button onclick="showCard(8)">→</button>
+      </div>
+      <span class="footer-num">07 / 10</span>
+    </div>
+  </article>
+
+  <!-- ══════════════ CARD 08 ══════════════ -->
+  <article class="card card-08" id="card-8">
+    <div class="card-inner">
+      <div class="label">Organization</div>
+      <h2 class="c08-heading">준비위원회<br>조직 구성.</h2>
+      <div class="c08-sub">— 출글 체계 —</div>
+      <div class="c08-leadership">
+        <div class="c08-person">
+          <div class="role">대회장</div>
+          <div class="name">남명철</div>
+          <div class="title">이사장</div>
+        </div>
+        <div class="c08-person">
+          <div class="role">부대회장</div>
+          <div class="name">김동건</div>
+          <div class="title">ND</div>
+        </div>
+        <div class="c08-person">
+          <div class="role">준비위원장</div>
+          <div class="name">신금용</div>
+          <div class="title">부이사장</div>
+        </div>
+        <div class="c08-person">
+          <div class="role">사무총장</div>
+          <div class="name">임국진</div>
+          <div class="title">&nbsp;</div>
+        </div>
+      </div>
+      <div class="c08-divs">
+        <div class="c08-divs-label">9개 분과 · 기획 → 실행 → 지원</div>
+        <div class="c08-phase-row">
+          <div class="c08-phase-label plan">PLAN</div>
+          <div class="c08-phase-items">
+            <span class="c08-tag">01 기획조정 — 경의영</span>
+          </div>
+        </div>
+        <div class="c08-phase-row">
+          <div class="c08-phase-label exec">EXECUTE</div>
+          <div class="c08-phase-items">
+            <span class="c08-tag">02 프로그램진행 — 한경성</span>
+            <span class="c08-tag">03 현장운영 — 변인석</span>
+            <span class="c08-tag">04 예배찬양 — 김경우</span>
+            <span class="c08-tag">05 친교활동 — 장재형</span>
+            <span class="c08-tag">06 MK/차세대 — 양희윤</span>
+          </div>
+        </div>
+        <div class="c08-phase-row">
+          <div class="c08-phase-label supp">SUPPORT</div>
+          <div class="c08-phase-items">
+            <span class="c08-tag">07 참가자관리 — 강정희·최은서</span>
+            <span class="c08-tag">08 재정 — 민수식</span>
+            <span class="c08-tag">09 홍보미디어 — 이창진</span>
+          </div>
+        </div>
+      </div>
+      <div class="c08-principle">
+        기획조정이 "무엇을" 설계하고, 프로그램진행이 "어떻게" 실행하며, 현장운영이 로지스틱스를 뒷받침합니다. 사무총장이 분과 간 커뮤니케이션 허브 역할을 담당합니다.
+      </div>
+    </div>
+    <div class="card-footer">
+      <span class="footer-label">Structure</span>
+      <div class="card-arrows">
+        <button onclick="showCard(7)">←</button>
+        <button onclick="showCard(9)">→</button>
+      </div>
+      <span class="footer-num">08 / 10</span>
+    </div>
+  </article>
+
+  <!-- ══════════════ CARD 09 ══════════════ -->
+  <article class="card card-09" id="card-9">
+    <div class="card-inner">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;">
+        <div class="label" style="margin:0">As of April 2026</div>
+        <div class="label-gray">2026.04 현재</div>
+      </div>
+      <h2 class="c09-heading">준비 현황.</h2>
+      <p class="c09-dday">대회까지 D-190. 주요 프레임은 갖추어졌고,<br>세부 실행이 본격화되는 단계입니다.</p>
+      <div class="c09-cols">
+        <div>
+          <div class="c09-col-header"><span class="count">7 완료</div>
+          <ul class="c09-list">
+            <li><span class="icon-done">☑</span>대회 주제(RE:MEMBER) 및 4가지 확정</li>
+            <li><span class="icon-done">☑</span>9개 분과 조직 편성 및 분과장 배정</li>
+            <li><span class="icon-done">☑</span>브니엘교회 협력 공문 발송 및 현장 답사</li>
+            <li><span class="icon-done">☑</span>참가자 등록 시스템 운영 중</li>
+            <li><span class="icon-done">☑</span>외부 강사 2명 확정<span class="sub">김종구 소장 · 홍주은 대표</span></li>
+            <li><span class="icon-done">☑</span>일정 가안(4일 타임테이블) 수립</li>
+            <li><span class="icon-done">☑</span>숙소(하얏트 플레이스 부산) 확정</li>
+          </ul>
+        </div>
+        <div>
+          <div class="c09-col-header"><span class="count">4</span> / 11 진행 중</div>
+          <ul class="c09-list">
+            <li><span class="icon-wip">●</span>분과별 세부 계획 수립 및 예산 편성</li>
+            <li><span class="icon-wip">●</span>브니엘교회 실무 협의<span class="sub">봉사팀 · MK 프로그램 · 저녁식사 · 공간</span></li>
+            <li><span class="icon-wip">●</span>홍보 콘텐츠 기획 및 제작</li>
+            <li><span class="icon-wip">●</span>상담 서비스 기획<span class="sub">위드원 상담센터 협력</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="card-footer">
+      <span class="footer-label">Progress</span>
+      <div class="card-arrows">
+        <button onclick="showCard(8)">←</button>
+        <button onclick="showCard(10)">→</button>
+      </div>
+      <span class="footer-num">09 / 10</span>
+    </div>
+  </article>
+
+  <!-- ══════════════ CARD 10 ══════════════ -->
+  <article class="card card-10" id="card-10">
+    <div class="card-inner">
+      <div class="label">To the Board</div>
+      <h2 class="c10-heading">함께 만들어야<br>할 대회.</h2>
+      <p class="c10-intro">이 대회는 준비위원회만의 행사가 아닙니다.<br>지피 전체가 함께 만드는 <strong>전환의 시간</strong>입니다.</p>
+      <div class="c10-asks">
+        <div class="c10-ask">
+          <div class="c10-ask-num">I.</div>
+          <div class="c10-ask-body">
+            <h3>참여 독려</h3>
+            <p>각 지역 장들이 지역 대회의 의미와 가치를 전달하고, 적극적 의미 부여 및 참여를 독려해 주십시오.</p>
+          </div>
+        </div>
+        <div class="c10-ask">
+          <div class="c10-ask-num">II.</div>
+          <div class="c10-ask-body">
+            <h3>재정 지원</h3>
+            <p>총 예산 1억 2천만원(미정) 대비 부족분에 대한 후원과 각 지역 항공료도 지원이 필요합니다 .</p>
+          </div>
+        </div>
+        <div class="c10-ask">
+          <div class="c10-ask-num">III.</div>
+          <div class="c10-ask-body">
+            <h3>분과 협력</h3>
+            <p>이사님들이 배정된 각 분과에서 실질적 지원과 조언을 부탁드립니다.</p>
+          </div>
+        </div>
+      </div>
+      <div class="c10-quote">
+        <p>참가자들이 돌아간 후 이렇게 말할 수 있어야 합니다.<br>"나는 지피가 어떤 공동체인지 다시 알게 되었다. 나는 이제 이 공동체의 일원이라고 느끼며 앞으로의 변화가 기대된다."</p>
+      </div>
+    </div>
+    <div class="card-footer">
+      <span class="footer-label">The Ask · Thank You</span>
+      <div class="card-arrows">
+        <button onclick="showCard(9)">←</button>
+        <button onclick="showCard(1)">→</button>
+      </div>
+      <span class="footer-num">10 / 10</span>
+    </div>
+  </article>
+
+</div><!-- /cards-wrapper -->
+
+<script>
+  function showCard(n) {
+    document.querySelectorAll('.card').forEach(c => c.classList.remove('visible'));
+    document.getElementById('card-' + n).classList.add('visible');
+    document.querySelectorAll('.card-nav button').forEach((b, i) => {
+      b.classList.toggle('active', i + 1 === n);
+    });
+    window.scrollTo({ top: document.querySelector('.card-nav').offsetTop - 20, behavior: 'smooth' });
+  }
+
+  document.addEventListener('keydown', e => {
+    const active = document.querySelector('.card-nav button.active');
+    const idx = [...document.querySelectorAll('.card-nav button')].indexOf(active) + 1;
+    if (e.key === 'ArrowRight') showCard(idx % 10 + 1);
+    if (e.key === 'ArrowLeft') showCard((idx - 2 + 10) % 10 + 1);
+  });
+</script>
+</body>
+</html>
