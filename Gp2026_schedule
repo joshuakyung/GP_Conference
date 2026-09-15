@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2026 GP Korea 대회 일정표 | RE : MEMBER</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+:root{
+  --navy:#1B2A6B;
+  --ink:#171A2E;
+  --paper:#FBFAF7;
+  --gold:#F5C200;
+  --muted:#6E7285;
+  --line:#E4E2DA;
+  --wash:#F2F1EC;
+  --slot:15px;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font-family:"Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,"Malgun Gothic","맑은 고딕",system-ui,sans-serif;
+  font-size:16px; line-height:1.55; -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1060px;margin:0 auto;padding:28px 18px 56px}
+
+/* ── header ───────────────────────────────── */
+header{border-top:5px solid var(--navy);padding-top:20px;margin-bottom:26px}
+.kicker{font-size:13px;letter-spacing:.14em;color:var(--navy);font-weight:700;margin:0 0 6px}
+h1{margin:0;font-size:clamp(26px,5.2vw,40px);font-weight:800;line-height:1.18;letter-spacing:-.02em}
+h1 em{font-style:normal;display:block;font-size:.52em;font-weight:600;color:var(--navy);letter-spacing:.02em;margin-top:8px}
+.meta{margin:14px 0 0;color:var(--muted);font-size:14.5px}
+.meta b{color:var(--ink);font-weight:600}
+
+/* ── legend ───────────────────────────────── */
+.legend{display:flex;flex-wrap:wrap;gap:8px 16px;margin:22px 0 18px;font-size:13px;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:7px}
+.dot{width:11px;height:11px;border-radius:2px;display:inline-block}
+.d-worship{background:var(--navy)}
+.d-session{background:#7B8BC4}
+.d-meal{background:#D8D5CA}
+.d-move{background:#EFEDE6;border:1px solid var(--line)}
+.d-ritual{background:var(--gold)}
+
+/* ── desktop grid ─────────────────────────── */
+.grid-view{display:block}
+.daybar{display:grid;grid-template-columns:62px repeat(4,1fr);gap:0 10px;position:sticky;top:0;background:var(--paper);z-index:5;padding:8px 0 10px;border-bottom:1px solid var(--line)}
+.daybar div{font-size:14px;font-weight:700;color:var(--navy);text-align:left}
+.daybar div small{display:block;font-weight:500;color:var(--muted);font-size:12px;letter-spacing:.01em}
+.daybar .spacer{border:0}
+
+.grid{display:grid;grid-template-columns:62px repeat(4,1fr);gap:0 10px;position:relative;padding-top:10px}
+.timecol{grid-column:1;display:grid;grid-auto-rows:var(--slot)}
+.timecol span{font-size:11.5px;color:var(--muted);font-variant-numeric:tabular-nums;transform:translateY(-6px)}
+.daycol{display:grid;grid-auto-rows:var(--slot);position:relative;border-left:1px solid var(--line)}
+.daycol:last-child{border-right:1px solid var(--line)}
+
+.blk{margin:1px 3px;border-radius:4px;padding:5px 8px;overflow:hidden;font-size:12.5px;line-height:1.32}
+.blk b{display:block;font-weight:700;font-size:13px;letter-spacing:-.01em}
+.blk i{font-style:normal;display:block;color:inherit;opacity:.72;font-size:11.5px;margin-top:2px}
+.blk .tm{font-variant-numeric:tabular-nums;opacity:.65;font-size:11px;display:block}
+
+.k-worship{background:var(--navy);color:#fff}
+.k-session{background:#E7EAF6;color:#20306F;border-left:3px solid #7B8BC4}
+.k-meal{background:var(--wash);color:#5A5648}
+.k-move{background:transparent;color:var(--muted);border:1px dashed var(--line)}
+.k-focus{background:#FFF6D6;color:#5A4600;border-left:3px solid var(--gold)}
+
+.seal{display:inline-block;margin-top:4px;background:var(--gold);color:#3A2E00;font-size:10.5px;font-weight:800;border-radius:3px;padding:2px 6px;letter-spacing:-.01em}
+.k-worship .seal{background:var(--gold)}
+
+/* ── mobile ───────────────────────────────── */
+.tabs{display:none}
+.list-view{display:none}
+@media (max-width:820px){
+  .grid-view{display:none}
+  .list-view{display:block}
+  .tabs{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;position:sticky;top:0;background:var(--paper);padding:10px 0;z-index:5;border-bottom:1px solid var(--line)}
+  .tabs button{font:inherit;font-size:13px;font-weight:700;padding:9px 4px;border:1px solid var(--line);background:#fff;color:var(--muted);border-radius:6px;cursor:pointer;line-height:1.25}
+  .tabs button small{display:block;font-size:11px;font-weight:500}
+  .tabs button[aria-selected="true"]{background:var(--navy);border-color:var(--navy);color:#fff}
+  .tabs button[aria-selected="true"] small{color:#C9D0EC}
+  .tabs button:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+
+  .row{display:grid;grid-template-columns:78px 1fr;gap:12px;padding:12px 0;border-bottom:1px solid var(--line);align-items:start}
+  .row .t{font-size:13px;font-variant-numeric:tabular-nums;color:var(--muted);padding-top:2px;line-height:1.35}
+  .row .c b{display:block;font-size:16px;font-weight:700;letter-spacing:-.01em}
+  .row .c i{font-style:normal;display:block;color:var(--muted);font-size:13.5px;margin-top:3px}
+  .row.r-worship .c b{color:var(--navy)}
+  .row.r-move{opacity:.72}
+  .row.r-focus{background:#FFFBEA;margin:0 -12px;padding-left:12px;padding-right:12px}
+}
+
+footer{margin-top:34px;padding-top:16px;border-top:1px solid var(--line);font-size:13px;color:var(--muted)}
+footer b{color:var(--ink)}
+@media print{.tabs{display:none}.list-view{display:none}.grid-view{display:block}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <p class="kicker">2026 GP Korea 대회</p>
+  <h1>4일간의 일정<em>RE : MEMBER · 거룩 · 기쁨 · 섬김 · 절제</em></h1>
+  <p class="meta"><b>2026년 10월 27일(화) – 30일(금)</b> · 집회 <b>부산 브니엘교회</b> · 숙소 <b>Hyatt Place Busan</b></p>
+</header>
+
+<div class="legend">
+  <span><i class="dot d-worship"></i>예배 · 집회</span>
+  <span><i class="dot d-session"></i>강의 · 모임</span>
+  <span><i class="dot d-meal"></i>식사</span>
+  <span><i class="dot d-move"></i>등록 · 이동 · 휴식</span>
+  <span><i class="dot d-ritual"></i>공동체 의례 (Remember)</span>
+</div>
+
+<div class="grid-view">
+  <div class="daybar" id="daybar"></div>
+  <div class="grid" id="grid"></div>
+</div>
+
+<div class="tabs" id="tabs" role="tablist"></div>
+<div class="list-view" id="list"></div>
+
+<footer>
+  <b>2026 지피대회 준비위원회</b> · 일정은 현장 사정에 따라 일부 조정될 수 있습니다.<br>
+  문의 : 지피 한국본부 info@gpkorea.org
+</footer>
+
+</div>
+
+<script>
+const DAYS = [
+  {label:"1일차", date:"10/27 화"},
+  {label:"2일차", date:"10/28 수"},
+  {label:"3일차", date:"10/29 목"},
+  {label:"4일차", date:"10/30 금"}
+];
+
+// kind: worship | session | meal | move | focus
+const P = [
+[ // 1일차
+  {s:"10:00",e:"12:00",t:"등록",sub:"브니엘교회 · 캐리어 택 부착",k:"move"},
+  {s:"12:00",e:"13:00",t:"점심식사",sub:"교회 식당",k:"meal"},
+  {s:"13:00",e:"13:30",t:"찬양",sub:"본관 3층",k:"worship"},
+  {s:"13:30",e:"14:40",t:"개회예배",sub:"본관 3층",k:"worship",seal:"Remember Our Beginning"},
+  {s:"14:40",e:"14:55",t:"대회 OT",sub:"본관 3층",k:"session"},
+  {s:"15:00",e:"15:50",t:"상담 OT",sub:"이유경 교수 · TCI 안내 · 본관 3층",k:"session"},
+  {s:"16:20",e:"17:50",t:"레크리에이션",sub:"교육관 2층",k:"session"},
+  {s:"17:50",e:"19:00",t:"저녁식사",sub:"교회 식당",k:"meal"},
+  {s:"19:00",e:"21:00",t:"집회 첫째날",sub:"본관 3층",k:"worship"},
+  {s:"21:00",e:"21:30",t:"호텔 이동",sub:"셔틀 운행",k:"move"}
+],
+[ // 2일차
+  {s:"07:00",e:"09:00",t:"아침식사",sub:"Hyatt Place Busan",k:"meal"},
+  {s:"09:00",e:"09:15",t:"찬양",sub:"교육관 2층",k:"worship"},
+  {s:"09:15",e:"10:45",t:"RE:MEMBER ①",sub:"‘서로의 언어를 다시 읽다’ · 김종구 소장 · 교육관 2층",k:"session"},
+  {s:"10:45",e:"11:00",t:"휴식 · 단체사진",sub:"",k:"move"},
+  {s:"11:00",e:"12:00",t:"선교 패러다임 토의",sub:"이승우 장로 · 교육관 2층",k:"session"},
+  {s:"12:00",e:"13:00",t:"점심식사",sub:"교회 식당",k:"meal"},
+  {s:"13:00",e:"13:30",t:"제106차 정기 이사회",sub:"본관 2층",k:"session"},
+  {s:"13:30",e:"14:40",t:"지역별 ARM",sub:"지역이사와의 만남 · 본관 2층",k:"session"},
+  {s:"15:00",e:"16:00",t:"선택강좌 1차",sub:"본관 2층 · 사전 신청",k:"focus"},
+  {s:"16:10",e:"17:10",t:"선택강좌 2차",sub:"본관 2층 · 사전 신청",k:"focus"},
+  {s:"17:10",e:"19:00",t:"저녁식사",sub:"교회 식당",k:"meal"},
+  {s:"19:00",e:"21:00",t:"집회 둘째날",sub:"본관 3층",k:"worship"},
+  {s:"21:00",e:"21:30",t:"호텔 이동",sub:"셔틀 운행",k:"move"}
+],
+[ // 3일차
+  {s:"07:00",e:"09:00",t:"아침식사",sub:"Hyatt Place Busan",k:"meal"},
+  {s:"09:00",e:"09:15",t:"찬양",sub:"본관 3층",k:"worship"},
+  {s:"09:15",e:"10:15",t:"RE:MEMBER ②-1",sub:"‘세대의 결을 다시 읽다’ · 홍주은 대표 · 본관 3층",k:"session"},
+  {s:"10:15",e:"10:30",t:"휴식",sub:"",k:"move"},
+  {s:"10:30",e:"11:30",t:"RE:MEMBER ②-2",sub:"‘공동체의 문화를 다시 읽다’ · 홍주은 대표 · 본관 3층",k:"session"},
+  {s:"11:30",e:"12:00",t:"아우팅 조 편성 확인",sub:"출발 준비",k:"move"},
+  {s:"12:00",e:"18:00",t:"부산 아우팅",sub:"12개 코스 · 사전 신청 · 조별 이동",k:"focus"},
+  {s:"18:00",e:"19:00",t:"저녁식사",sub:"교회 식당",k:"meal"},
+  {s:"19:00",e:"21:20",t:"집회 셋째날",sub:"찬양 · 국악 공연(주놀이패) · 설교 · 본관 3층",k:"worship",seal:"Remember Their Faithfulness"},
+  {s:"21:20",e:"21:30",t:"호텔 이동",sub:"셔틀 운행",k:"move"}
+],
+[ // 4일차
+  {s:"07:00",e:"09:00",t:"아침식사",sub:"Hyatt Place Busan",k:"meal"},
+  {s:"09:00",e:"10:15",t:"퇴실 · 이동",sub:"호텔 체크아웃",k:"move"},
+  {s:"10:15",e:"10:30",t:"찬양",sub:"본관 3층",k:"worship"},
+  {s:"10:30",e:"11:30",t:"세대별 모임",sub:"본관 2층",k:"session"},
+  {s:"11:30",e:"12:00",t:"나눔 · 발표",sub:"전체 나눔 · 개인/MK 발표 · 본관 3층",k:"session"},
+  {s:"12:00",e:"13:00",t:"점심식사",sub:"도시락",k:"meal"},
+  {s:"13:00",e:"14:30",t:"폐회예배",sub:"성찬 · 신임 이사장/대표 소개 · 본관 3층",k:"worship",seal:"Remember Our Calling"},
+  {s:"14:30",e:"14:45",t:"해산",sub:"",k:"move"}
+]];
+
+const START=7*60, END=21*60+30, STEP=15;
+const toMin = t => (+t.slice(0,2))*60 + (+t.slice(3,5));
+const row = t => Math.round((toMin(t)-START)/STEP)+1;
+const esc = s => s.replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+
+/* desktop */
+const daybar=document.getElementById('daybar');
+daybar.innerHTML='<div class="spacer"></div>'+DAYS.map(d=>
+  `<div>${d.label}<small>${d.date}</small></div>`).join('');
+
+const grid=document.getElementById('grid');
+let html='<div class="timecol">';
+for(let m=START;m<END;m+=60){
+  const h=String(Math.floor(m/60)).padStart(2,'0');
+  html+=`<span style="grid-row:${Math.round((m-START)/STEP)+1} / span 4">${h}:00</span>`;
+}
+html+='</div>';
+P.forEach(day=>{
+  html+='<div class="daycol">';
+  day.forEach(b=>{
+    html+=`<div class="blk k-${b.k}" style="grid-row:${row(b.s)} / ${row(b.e)}">`
+      + `<span class="tm">${b.s}–${b.e}</span><b>${esc(b.t)}</b>`
+      + (b.sub?`<i>${esc(b.sub)}</i>`:'')
+      + (b.seal?`<span class="seal">${esc(b.seal)}</span>`:'')
+      + '</div>';
+  });
+  html+='</div>';
+});
+grid.innerHTML=html;
+
+/* mobile */
+const tabs=document.getElementById('tabs'), list=document.getElementById('list');
+tabs.innerHTML=DAYS.map((d,i)=>
+  `<button role="tab" aria-selected="${i===0}" data-i="${i}">${d.label}<small>${d.date}</small></button>`).join('');
+
+function render(i){
+  list.innerHTML=P[i].map(b=>
+    `<div class="row r-${b.k}"><div class="t">${b.s}<br>${b.e}</div><div class="c"><b>${esc(b.t)}</b>`
+    +(b.sub?`<i>${esc(b.sub)}</i>`:'')
+    +(b.seal?`<span class="seal">${esc(b.seal)}</span>`:'')
+    +'</div></div>').join('');
+}
+tabs.addEventListener('click',e=>{
+  const btn=e.target.closest('button'); if(!btn) return;
+  [...tabs.children].forEach(b=>b.setAttribute('aria-selected', b===btn));
+  render(+btn.dataset.i);
+});
+render(0);
+</script>
+</body>
+</html>
