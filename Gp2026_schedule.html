@@ -15,7 +15,7 @@
   --muted:#6E7285;
   --line:#E4E2DA;
   --wash:#F2F1EC;
-  --slot:15px;
+  --slot:20px;
 }
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
@@ -57,10 +57,23 @@ h1 em{font-style:normal;display:block;font-size:.52em;font-weight:600;color:var(
 .daycol{display:grid;grid-auto-rows:var(--slot);position:relative;border-left:1px solid var(--line)}
 .daycol:last-child{border-right:1px solid var(--line)}
 
-.blk{margin:1px 3px;border-radius:4px;padding:5px 8px;overflow:hidden;font-size:12.5px;line-height:1.32}
+.blk{margin:1px 3px;border-radius:4px;padding:5px 8px;overflow:hidden;font-size:12.5px;line-height:1.32;display:flex;flex-direction:column;justify-content:center;cursor:default}
 .blk b{display:block;font-weight:700;font-size:13px;letter-spacing:-.01em}
 .blk i{font-style:normal;display:block;color:inherit;opacity:.72;font-size:11.5px;margin-top:2px}
 .blk .tm{font-variant-numeric:tabular-nums;opacity:.65;font-size:11px;display:block}
+
+/* compact: <30분 — 부제 생략, 시간+제목 유지 */
+.blk.is-compact{padding:3px 8px}
+.blk.is-compact .tm{display:inline;margin-right:5px}
+.blk.is-compact b{display:inline;font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.blk.is-compact i{display:none}
+
+/* ultra: <20분 — 제목만, 한 줄 */
+.blk.is-ultra{padding:2px 8px}
+.blk.is-ultra .tm{display:none}
+.blk.is-ultra b{font-size:11.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.blk.is-ultra i{display:none}
+.blk.is-ultra .seal{display:none}
 
 .k-worship{background:var(--navy);color:#fff}
 .k-session{background:#E7EAF6;color:#20306F;border-left:3px solid #7B8BC4}
@@ -210,7 +223,10 @@ html+='</div>';
 P.forEach(day=>{
   html+='<div class="daycol">';
   day.forEach(b=>{
-    html+=`<div class="blk k-${b.k}" style="grid-row:${row(b.s)} / ${row(b.e)}">`
+    const dur = toMin(b.e)-toMin(b.s);
+    const cls = dur<20 ? ' is-ultra' : dur<30 ? ' is-compact' : '';
+    const tip = `${b.s}–${b.e} ${b.t}${b.sub?' · '+b.sub:''}`;
+    html+=`<div class="blk k-${b.k}${cls}" style="grid-row:${row(b.s)} / ${row(b.e)}" title="${esc(tip)}">`
       + `<span class="tm">${b.s}–${b.e}</span><b>${esc(b.t)}</b>`
       + (b.sub?`<i>${esc(b.sub)}</i>`:'')
       + (b.seal?`<span class="seal">${esc(b.seal)}</span>`:'')
